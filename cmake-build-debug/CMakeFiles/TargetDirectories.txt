@@ -1,0 +1,3 @@
+/mnt/d/Documents/Projects/os/cmake-build-debug/CMakeFiles/os.dir
+/mnt/d/Documents/Projects/os/cmake-build-debug/CMakeFiles/edit_cache.dir
+/mnt/d/Documents/Projects/os/cmake-build-debug/CMakeFiles/rebuild_cache.dir

@@ -1,0 +1,1 @@
+xxd diskshit3.bin -

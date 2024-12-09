@@ -1,0 +1,7 @@
+nasm -f elf32 PROGRAM_NAME.asm -o PROGRAM_NAME.o
+ld -m elf_i386 PROGRAM_NAME.o -o PROGRAM_NAME
+./PROGRAM_NAME
+echo $? (to see the exit status)
+
+gcc -m32 PROGRAM_NAME.o -o PROGRAM_NAME (for linking with c)
+gcc -m32 ASM_PROG.o C_PROG.c -o PROGRAM_NAME (more useful)

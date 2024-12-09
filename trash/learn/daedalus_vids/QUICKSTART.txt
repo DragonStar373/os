@@ -1,0 +1,17 @@
+[org 0x7c00]
+global _start
+section .data
+section .text
+
+_start:
+	jmp $
+
+times 510-($-$$) db 0
+db 0x55, 0xaa
+
+nasm -f bin FILE.asm -o FILE.bin
+qemu-system-x86_64 FILE.bin
+
+
+
+
