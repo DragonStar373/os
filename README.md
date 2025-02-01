@@ -5,6 +5,7 @@ freaking terrible project. why would i ever start this project. this was an awfu
 ---
 
 Anyways uhh this is an attempt to "make an operating system from scratch"
+
 I must admit, despite the many, *many*, ***many*** problems with this entire project, it does in fact work!
 
 After compiling everything (which basically means running `make.sh` on linux/WSL), you get a final result of `os.bin`, which can then _actually be run_ in a vm (super cool)
