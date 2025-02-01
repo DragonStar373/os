@@ -19,7 +19,7 @@ So the very base of the project is `boot.asm`. This is the bootloader, the very 
 
 I could try to explain this file in depth, but it has ~~decent~~ okayish inline documentation on its own, and to be honest I only barely understand large parts of it myself. I followed a really good tutorial to learn basic assembly (which i sadly couldn't find the link to), alongside [another really good tutorial](https://www.youtube.com/watch?v=MwPjvJ9ulSc&list=PLm3B56ql_akNcvH8vvJRYOc7TbYhRs19M) to learn not only how to _make_ the bootloader, but also _how and why_ everything works; I would absolutely reccomend watching it if you want to learn more.
 
----
+
 
 Next is `kernel_entry.asm`, `kernel_asm_main.asm`, and `kernel.cpp`. Because only the first 512 Bytes get loaded into memory by default (ie `boot.asm`), `boot.asm` loads the rest of the disk (or binary) into memory itself, with `kernel_entry` being the very first thing it jumps to. From there, `kernel_entry` runs `kernel_asm_main` and `kernel` (which is written in C++).
 
