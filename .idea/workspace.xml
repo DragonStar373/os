@@ -29,19 +29,12 @@
   <component name="ChangeListManager">
     <list default="true" id="1c5e8eb2-3d5b-4f8a-a9df-5b84f7e2dc18" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/editor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/editor.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/boot.asm" beforeDir="false" afterPath="$PROJECT_DIR$/boot.asm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/boot.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/boot.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/bootloader.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/bootloader.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/fullkernel.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/fullkernel.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/kernel.o" beforeDir="false" afterPath="$PROJECT_DIR$/build/kernel.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/kernel_asm_main.o" beforeDir="false" afterPath="$PROJECT_DIR$/build/kernel_asm_main.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kernel.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/kernel.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/kernel_asm_main.asm" beforeDir="false" afterPath="$PROJECT_DIR$/kernel_asm_main.asm" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/os.bin" beforeDir="false" afterPath="$PROJECT_DIR$/os.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/setup-gcc-debian.sh" beforeDir="false" afterPath="$PROJECT_DIR$/setup-gcc-debian.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,9 +93,9 @@
   }
 }</component>
   <component name="RunManager" selected="Shell Script.run">
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
     <configuration name="make" type="ShConfigurationType">
@@ -191,7 +184,8 @@
       <workItem from="1724370651149" duration="30000" />
       <workItem from="1727627220155" duration="1411000" />
       <workItem from="1740519156300" duration="1856000" />
-      <workItem from="1740524706980" duration="5239000" />
+      <workItem from="1740524706980" duration="5490000" />
+      <workItem from="1740597365779" duration="9361000" />
     </task>
     <servers />
   </component>
