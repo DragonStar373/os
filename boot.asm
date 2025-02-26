@@ -1,5 +1,6 @@
 [org 0x7c00]
 KERNEL_LOCATION equ 0x1000
+FRAMEBUFFER_LOCATION equ 0x600
 
 mov [BOOT_DISK], dl
 
@@ -74,16 +75,29 @@ jmp $            ; Hang the system or loop back to retry
 
 no_error:
 
+
 ; 2) clear the screen
 
+;mov ah, 0x0
+;mov al, 0x3
+;int 0x10	;enters text mode, clears the screen
 
-mov ah, 0x0
-mov al, 0x3
-int 0x10	;enters text mode, clears the screen
+mov ax, 0x4F00  ; VBE function to get VBE controller info
+mov di, vbe_info_buffer  ; Store output here
+int 0x10        ; Call BIOS
+
+mov ax, 0x4F01  ; Get specific mode info
+mov cx, 0x0118  ; Example: 1024x768 mode
+mov di, vbe_mode_info_buffer  ; Store output here
+int 0x10
+
+mov ax, 0x4F02  ; Set video mode
+mov bx, 0x0118  ; 1024x768 24-bit color
+or  bx, 0x4000  ; Enable linear framebuffer
+int 0x10
 
 
 ; 3) switch to PM
-
 
 CODE_SEG equ code_descriptor - GDT_Start
 DATA_SEG equ data_descriptor - GDT_Start
@@ -141,15 +155,28 @@ start_protected_mode:
 		mov esp, ebp
 
 ;test
-	mov al, 'A'
-	mov ah, 0x0f
-	mov [0xb8000], ax
+	;mov al, 'A'
+	;mov ah, 0x0f
+	;mov [0xb8000], ax
+	mov eax, dword [vbe_mode_info_buffer + 0x28]  ; Full 32-bit framebuffer address
+    ;mov edi, [vbe_mode_info_buffer + 0x28]  ; Get framebuffer address
+    ;mov dword [edi], 0x00FF00  ; Write a green pixel (24-bit color)
+    mov [FRAMEBUFFER_LOCATION], eax
+
 
 
 ; 4) jmp to kernel3
 
 	jmp KERNEL_LOCATION
 
+vbe_info_buffer:
+    times 128 db 0   ; Reserve 128 bytes
+
+vbe_mode_info_buffer:
+    times 64 db 0   ; Reserve 64 bytes
+
+framebuffer:
+    times 8 db 0
 
 times 510-($-$$) db 0
 dw 0xaa55
