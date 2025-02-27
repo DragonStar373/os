@@ -259,10 +259,716 @@ mov byte [edi], 0xDD
 mov byte [edi + 1], 0xDD
 mov byte [edi + 2], 0xDD
 
+;ok; atp imma start using functions more instead of just jmp
+mov dword [xcounter], 1
+call print_A
+call print_B
+call print_C
+call print_D
+call print_E
+call print_F
+
 
 jmp $
 
-ret
+print_F:
+    ;set up
+    ;chars will be 8x12 pixels
+    mov edi, [FRAMEBUFFER_LOCATION]
+    mov eax, [xcounter]
+    mov dword ebx, 24
+    mul ebx
+    add edi, eax
+
+    add edi, 3075
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3057
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3072
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3072
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3072
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3072
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3057
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3072
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3072
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3072
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3072
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+
+    inc dword [xcounter]
+    ret
+
+print_E:
+    ;set up
+    ;chars will be 8x12 pixels
+    ;here we just print A
+    mov edi, [FRAMEBUFFER_LOCATION]
+    mov eax, [xcounter]
+    mov dword ebx, 24
+    mul ebx
+    add edi, eax     ; where to start writing
+
+    add edi, 3075
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3057
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3072
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3072
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3072
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3072
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3057
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3072
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3072
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3072
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3072
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+
+    inc dword [xcounter]
+    ret
+
+print_D:
+    ;set up
+    ;chars will be 8x12 pixels
+    ;here we just print A
+    mov edi, [FRAMEBUFFER_LOCATION]
+    mov eax, [xcounter]
+    mov dword ebx, 24
+    mul ebx
+    add edi, eax     ; where to start writing
+
+    add edi, 3075
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3063
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 12
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3060
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 15
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3057
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 15
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3057
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 15
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3057
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 15
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3057
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 15
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3057
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 15
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3057
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 15
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3057
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 12
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3060
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+
+    inc dword [xcounter]
+    ret
+
+
+
+print_C:
+    ;set up
+    ;chars will be 8x12 pixels
+    ;here we just print A
+    mov edi, [FRAMEBUFFER_LOCATION]
+    mov eax, [xcounter]
+    mov dword ebx, 24
+    mul ebx
+    add edi, eax     ; where to start writing
+
+    add edi, 3078
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3057
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3072
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3072
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3072
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3072
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3072
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3072
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3072
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3072
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3075
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+
+    inc dword [xcounter]
+    ret
+
+
+print_B:
+    ;set up
+    ;chars will be 8x12 pixels
+    ;here we just print A
+    mov edi, [FRAMEBUFFER_LOCATION]
+    mov eax, [xcounter]
+    mov dword ebx, 24
+    mul ebx
+    add edi, eax     ; where to start writing
+
+    add edi, 3075
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3060
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 15
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3057
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 15
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3057
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 15
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3057
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 15
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3057
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3060
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 15
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3057
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 15
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3057
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 15
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3057
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 15
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3057
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+
+    inc dword [xcounter]
+    ret
+
+
+print_A:
+    ;set up
+    ;chars will be 8x12 pixels
+    ;here we just print A
+    mov edi, [FRAMEBUFFER_LOCATION]
+    mov eax, [xcounter]
+    mov dword ebx, 24
+    mul ebx
+    add edi, eax     ; to give some padding before writing it
+
+    add edi, 3078
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3063
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 9
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3060
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 9
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3057
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 15
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3057
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 15
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3057
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3057
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 15
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3057
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 15
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3057
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 15
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3057
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 15
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 3057
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+    add edi, 15
+    mov byte [edi], 0xDD
+    mov byte [edi + 1], 0xDD
+    mov byte [edi + 2], 0xDD
+
+    inc dword [xcounter]
+    ret
 
 
 framebuffer:
@@ -273,3 +979,5 @@ color2:
     times 1 db 0
 color3:
     times 1 db 0
+xcounter:
+    times 4 db 0

@@ -23,16 +23,17 @@ mov sp, bp		;idrk what this is for
 ;mov dl, [BOOT_DISK]	;drive #
 
 
-mov bx, KERNEL_LOCATION
-mov dh, 2
+;for disk reading:
+;we need to know A) what disk we want to read [stored in dl], B) the CHS (cyl, head, and sector) address we want to read from [boot sector is C=0, H=0, S=1; so we want to start with C=0,H=0,S=2], C) How many sectors we want to read, and D) where in memory we want to load it
 
-mov ah, 0x02
-mov al, dh
-mov ch, 0x00
-mov dh, 0x00
-mov cl, 0x02
+
+mov bx, KERNEL_LOCATION     ;location to load into memory
+mov ah, 0x02    ;ah must be 2. i do not know why ah must be 2. but ah must be 2.
+mov al, 0x08    ;number of sectors we want to read
+mov ch, 0x00    ;cylinder #
+mov cl, 0x02    ;sector #
+mov dh, 0x00    ;head #
 mov dl, [BOOT_DISK]
-
 
 int 0x13         ; Interrupt for disk read
 jc read_error    ; Jump if carry flag is set (error)

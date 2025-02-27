@@ -28,8 +28,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1c5e8eb2-3d5b-4f8a-a9df-5b84f7e2dc18" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/editor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/editor.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/char.asm" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot.asm" beforeDir="false" afterPath="$PROJECT_DIR$/boot.asm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/boot.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/boot.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/bootloader.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/bootloader.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/fullkernel.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/fullkernel.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/kernel_asm_main.o" beforeDir="false" afterPath="$PROJECT_DIR$/build/kernel_asm_main.o" afterDir="false" />
@@ -93,9 +95,9 @@
   }
 }</component>
   <component name="RunManager" selected="Shell Script.run">
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
       </method>
     </configuration>
     <configuration name="make" type="ShConfigurationType">
@@ -185,7 +187,8 @@
       <workItem from="1727627220155" duration="1411000" />
       <workItem from="1740519156300" duration="1856000" />
       <workItem from="1740524706980" duration="5490000" />
-      <workItem from="1740597365779" duration="9361000" />
+      <workItem from="1740597365779" duration="10659000" />
+      <workItem from="1740619716019" duration="9465000" />
     </task>
     <servers />
   </component>
