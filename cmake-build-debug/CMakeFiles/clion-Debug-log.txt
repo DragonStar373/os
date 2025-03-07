@@ -1,1 +1,1 @@
-CMakeLists.txt not found in /home/drago/Documents/os Select CMakeLists.txt
+CMakeLists.txt not found in /Users/drago/Documents/os Select CMakeLists.txt
