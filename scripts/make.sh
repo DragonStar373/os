@@ -1,23 +1,35 @@
-i386-elf-gcc -ffreestanding -m32 -g -c "kernel.cpp" -o "kernel.o" -fno-exceptions -fno-rtti
-echo "kernel.cpp compiled"
-nasm "kernel_entry.asm" -f elf -o "kernel_entry.o"
-echo "kernel_entry.asm assembled"
-nasm "kernel_asm_main.asm" -f elf -o "kernel_asm_main.o"
-echo "kernel_asm_main.asm assembled"
-i386-elf-ld -o "full_kernel.bin" -Ttext 0x1000 "kernel_entry.o" "kernel.o" "kernel_asm_main.o" --oformat binary
+i386-elf-gcc -ffreestanding -m32 -g -c "cpp_main.cpp" -o "cpp_main.o" -fno-exceptions -fno-rtti
+echo "cpp_main.cpp compiled"
+
+nasm "entry.asm" -f elf -o "entry.o"
+echo "entry.asm assembled"
+
+nasm "asm_main.asm" -f elf -o "asm_main.o"
+echo "asm_main.asm assembled"
+
+i386-elf-ld -o "entry.bin" -Ttext 0x1000 "entry.o" "cpp_main.o" "asm_main.o" --oformat binary
 echo "linked"
-nasm "boot.asm" -f bin -o "boot.bin"
-echo "bootloader assembled & compiled"
+
+nasm "boot1.asm" -f bin -o "boot1.bin"
+echo "bootloader stage 1 assembled & compiled"
+
+nasm "boot2.asm" -f bin -o "boot2.bin"
+echo "bootloader stage 2 assembled & compiled"
+
 nasm "zeroes.asm" -f bin -o "zeroes.bin"
 echo "zeroes assembled & compiled"
-cat "boot.bin" "full_kernel.bin" > "bootloader.bin"
-cat "bootloader.bin" "zeroes.bin" > "os.bin"
+
+cat "boot1.bin" "boot2.bin" > "boot.bin"
+cat "boot.bin" "entry.bin" > "entrystub.bin"
+cat "entrystub.bin" "zeroes.bin" > "os.bin"
 echo "finished, cleaning up;"
-mv kernel.o ./build/kernel.o
-mv kernel_entry.o ./build/kernel_entry.o
-mv full_kernel.bin ./build/fullkernel.bin
+mv cpp_main.o ./build/cpp_main.o
+mv entry.o ./build/entry.o
+mv entry.bin ./build/entry.bin
+mv boot1.bin ./build/boot1.bin
+mv boot2.bin ./build/boot2.bin
 mv boot.bin ./build/boot.bin
-mv bootloader.bin ./build/bootloader.bin
+mv entrystub.bin ./build/entrystub.bin
 mv zeroes.bin ./build/zeroes.bin
-mv kernel_asm_main.o ./build/kernel_asm_main.o
+mv asm_main.o ./build/asm_main.o
 echo "cleaned"

@@ -1,10 +1,31 @@
-# os
-
 freaking terrible project. why would i ever start this project. this was an awful idea of a project.
 
 ---
 
-note: the below readme is a bit outdated. this started off as an attempt to create an "os" but atm im just experimenting
+# How It Works
+
+This project is designed as a bare-metal, bootable piece of code. It's meant to be run on any computer with a standard BIOS (or UEFI with legacy mode enabled.)
+
+There are 3 major sections: The Bootloader, The Entry, and The Kernel (TBD)
+
+## The Bootloader
+
+The bootloader is split into 2 stages, since it's the bootloader's job to load the disk, start VBE graphics, and transition into 32-bit Protected Mode.
+
+### Bootloader - Stage 1:
+This stage (programmed in boot1.asm) has the sole job of loading the next sectors from the disk. Since the BIOS only loads the first sector (512 bytes) from the boot disk by default, we have to load in the rest ourselves (using `int 0x13`). We do this by
+- 1 - Finding the disk ID: by default, the disk ID is saved to the `dl` register on startup, so we just have to make sure to save that ID
+- 2 - Determining the CHS addressing: on standard disks/hard drives, you need to know what cylinder, head, and sector of the hard drive you want to read from (since hard drives can have multiple platters, with multiple heads to read from either side.) For this scenario, the boot sector was the C=0 H=0 S=1, so we want to read starting from C=0 H=0 S=2 (note: C & H start from 0, while S starts at 1)
+- 3 - Determining how many sectors to read: Bootloader Stage 2 is 5KB long, or 10 sectors, so we want to load at least that many. We add like 40KB of zeroes to the end of os.bin for padding, so realistically we shouldn't need to worry about making this number too big right now
+- well shit why isnt it working now (3/6/25)
+
+---
+
+---
+
+---
+
+note: the below is the old readme. im still reworking the entire thing, but its kinda hard to write a readme when the project is nowhere near production ready
 
 ---
 
@@ -14,12 +35,12 @@ I must admit, despite the many, *many*, ***many*** problems with this entire pro
 
 After compiling everything (which basically means running `make.sh` on linux/WSL), you get a final result of `os.bin`, which can then _actually be run_ in a vm (super cool)
 
-I use `qemu-system-x86_64` because it's easy and because it can treat raw binary `.bin` files like a normal disk image, same as `.iso` or `.img`, and idk if other virtual machines can do that. 
+I use `qemu-system-x86_64` because it's easy and because it can treat raw binary `.bin` files like a normal disk image, same as `.iso` or `.img`, and idk if other virtual machines can do that.
 Technically you _can_ also write the raw binary to a disk... and I've tested it and it *does* boot... but it won't get much further (more on that below)
 
 
 ### makin the thing
-So the very base of the project is `boot.asm`. This is the bootloader, the very first bit of programming that gets loaded into memory and run. It's written in NASM assembly, meaning what you see in the source code file is about as close to machine code as you can get. 
+So the very base of the project is `boot.asm`. This is the bootloader, the very first bit of programming that gets loaded into memory and run. It's written in NASM assembly, meaning what you see in the source code file is about as close to machine code as you can get.
 
 I could try to explain this file in depth, but it has ~~decent~~ okayish inline documentation on its own, and to be honest I don't understand some parts of it very well myself. I followed a really good tutorial to learn basic assembly (which i sadly couldn't find the link to), alongside [another really good tutorial](https://www.youtube.com/watch?v=MwPjvJ9ulSc&list=PLm3B56ql_akNcvH8vvJRYOc7TbYhRs19M) to learn not only how to _make_ the bootloader, but also _how and why_ everything works; I would absolutely reccomend watching it if you want to learn more.
 
