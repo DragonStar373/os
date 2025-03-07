@@ -211,7 +211,7 @@ mov sp, bp		;idrk what this is for
 
 mov bx, BOOT2_LOCATION     ;location to load into memory
 mov ah, 0x02    ;ah must be 2. i do not know why ah must be 2. but ah must be 2.
-mov al, 0x20    ;number of sectors we want to read
+mov al, 0x25    ;number of sectors we want to read
 mov ch, 0x00    ;cylinder #
 mov dh, 0x00    ;head #
 mov cl, 0x02    ;sector #
@@ -257,7 +257,7 @@ int 0x10
 jmp $            ; Hang the system or loop back to retry
 
 no_error:
-jmp $ ;safety sake
+;jmp $ ;safety sake
 
 
 jmp BOOT2_LOCATION

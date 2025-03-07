@@ -1,4 +1,4 @@
-[org 0x1000]
+[org 0xc00]
 FRAMEBUFFER_LOCATION equ 0x600
 ENTRY_LOCATION equ 0x2000
 
@@ -22,7 +22,6 @@ mov bx, 0x0118  ; 1024x768 24-bit color
 or  bx, 0x4000  ; Enable linear framebuffer
 int 0x10
 
-
 ; 3) switch to PM
 
 CODE_SEG equ code_descriptor - GDT_Start
@@ -31,6 +30,7 @@ DATA_SEG equ data_descriptor - GDT_Start
 
 cli	;disables all interrupts
 lgdt [GDT_Descriptor]
+
 
 mov eax, cr0
 or eax, 1
@@ -92,7 +92,6 @@ start_protected_mode:
 
 
 ; 4) jmp to kernel3
-
 	jmp ENTRY_LOCATION
 
 vbe_info_buffer:

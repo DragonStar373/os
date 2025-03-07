@@ -4,10 +4,10 @@ echo "cpp_main.cpp compiled"
 nasm "entry.asm" -f elf -o "entry.o"
 echo "entry.asm assembled"
 
-nasm "asm_main.asm" -f elf -o "asm_main.o"
-echo "asm_main.asm assembled"
+nasm "asm_entry_main.asm" -f elf -o "asm_entry_main.o"
+echo "asm_entry_main.asm assembled"
 
-i386-elf-ld -o "entry.bin" -Ttext 0x1000 "entry.o" "cpp_main.o" "asm_main.o" --oformat binary
+i386-elf-ld -o "entry.bin" -Ttext 0x1000 "entry.o" "cpp_main.o" "asm_entry_main.o" --oformat binary
 echo "linked"
 
 nasm "boot1.asm" -f bin -o "boot1.bin"
@@ -31,5 +31,5 @@ mv boot2.bin ./build/boot2.bin
 mv boot.bin ./build/boot.bin
 mv entrystub.bin ./build/entrystub.bin
 mv zeroes.bin ./build/zeroes.bin
-mv asm_main.o ./build/asm_main.o
+mv asm_entry_main.o ./build/asm_entry_main.o
 echo "cleaned"
