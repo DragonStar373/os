@@ -7,8 +7,8 @@
     <option name="/Default/RiderDebugger/RiderRestoreDecompile/RestoreDecompileSetting/@EntryValue" value="false" type="bool" />
     <option name="/Default/Housekeeping/GlobalSettingsUpgraded/IsUpgraded/@EntryValue" value="true" type="bool" />
     <option name="/Default/Housekeeping/FeatureSuggestion/FeatureSuggestionManager/DisabledSuggesters/=SwitchToGoToActionSuggester/@EntryIndexedValue" value="true" type="bool" />
-    <option name="/Default/Housekeeping/RefactoringsMru/RenameRefactoring/DoSearchForTextInStrings/@EntryValue" value="true" type="bool" />
     <option name="/Default/Housekeeping/FeatureSuggestion/FeatureSuggestionManager/DisabledSuggesters/=SwitchToGoToActionSuggester/@EntryIndexRemoved" />
+    <option name="/Default/Housekeeping/RefactoringsMru/RenameRefactoring/DoSearchForTextInStrings/@EntryValue" value="true" type="bool" />
   </component>
   <component name="CMakePresetLoader">{
   &quot;useNewFormat&quot;: true
@@ -29,16 +29,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1c5e8eb2-3d5b-4f8a-a9df-5b84f7e2dc18" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/boot1.asm" beforeDir="false" afterPath="$PROJECT_DIR$/boot1.asm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot2.asm" beforeDir="false" afterPath="$PROJECT_DIR$/boot2.asm" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/boot.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/boot.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/boot1.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/boot1.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/bootloader.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/bootloader.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/cpp_main.o" beforeDir="false" afterPath="$PROJECT_DIR$/build/cpp_main.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/boot2.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/boot2.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/entrystub.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/entrystub.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/entry.asm" beforeDir="false" afterPath="$PROJECT_DIR$/entry.asm" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/os.bin" beforeDir="false" afterPath="$PROJECT_DIR$/os.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/make-run-mac.sh" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/make-run-mac.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,9 +99,9 @@
   }
 }</component>
   <component name="RunManager" selected="Shell Script.mac run">
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
     <configuration name="debug" type="ShConfigurationType">
@@ -352,6 +350,7 @@
       <workItem from="1741313350074" duration="925000" />
       <workItem from="1741314505731" duration="188000" />
       <workItem from="1741370696966" duration="4220000" />
+      <workItem from="1741383314911" duration="9881000" />
     </task>
     <servers />
   </component>

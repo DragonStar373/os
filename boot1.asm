@@ -1,16 +1,39 @@
 [org 0x7c00]
-BOOT2_LOCATION equ 0xC00
+_start:
+    jmp main                         ; Jump to the main bootloader code
+    times (3 - ($ - _start)) db 0    ; Fill to ensure the BPB starts at the correct position
 
+    ; BPB for a 2.88MB floppy (FAT12)
+    OEMname:            db "MYBOOT  "   ; OEM name (8 bytes)
+    bytesPerSector:     dw 512          ; Bytes per sector
+    sectPerCluster:     db 1            ; Sectors per cluster
+    reservedSectors:    dw 1            ; Reserved sectors
+    numFAT:             db 2            ; Number of FAT tables
+    numRootDirEntries:  dw 240          ; Number of root directory entries
+    numSectors:         dw 5760         ; Total sectors (small value)
+    mediaType:          db 0xF0         ; Media descriptor
+    numFATsectors:      dw 9            ; Sectors per FAT
+    sectorsPerTrack:    dw 36           ; Sectors per track
+    numHeads:           dw 2            ; Number of heads
+    numHiddenSectors:   dd 0            ; Hidden sectors
+    numSectorsHuge:     dd 0            ; Large sector count (not used for floppy)
+    driveNum:           db 0            ; Drive number
+    reserved:           db 0x00         ; Reserved
+    signature:          db 0x29         ; Boot signature
+    volumeID:           dd 0x54428E71   ; Volume ID (randomly chosen)
+    volumeLabel:        db "NO NAME    " ; Volume label (11 bytes, space-padded)
+    fileSysType:        db "FAT12   "   ; Filesystem type (8 bytes, space-padded)
 
-
+main:
+;dl always contains what disk is the boot disk, we wanna save this (after testing, i've found that al & ah also often contain values on startup, but idk what for and google says they're unreliable)
 mov [BOOT_DISK], dl
 
 mov ah, 0x0e
 ;check that boot_disk == dl like it should, and that dl does not equal 0
 cmp dl, [BOOT_DISK]
-jne ruh_roh
-jmp not_ruh_roh
-ruh_roh:
+jne dl_err
+jmp not_dl_err
+dl_err:
 mov al, 'd'
 int 0x10
 mov al, 'l'
@@ -23,12 +46,36 @@ mov al, 'r'
 int 0x10
 mov al, 'r'
 int 0x10
-mov al, 'o'
+jmp $
+not_dl_err:
+
+;check that the bios recognises our disk (it should, if we're here)
+mov bx, 0x0475      ;the address of the "number of disks" section of the BDA,, it's just one byte
+
+mov byte al, [bx]
+cmp al, 0
+jz bios_disk_recognition_error
+jmp not_bios_disk_recognition_error
+;this only runs if the BIOS Data Area (BDA) section for the number of disks is equal to zero (which should literally NEVER happen). Doesn't stop execution, but the warning is visible for if/when the disk read error pops up
+bios_disk_recognition_error:
+mov al, 'B'
+int 0x10
+mov al, 'I'
+int 0x10
+mov al, 'O'
+int 0x10
+mov al, 'S'
+int 0x10
+mov al, ' '
+int 0x10
+mov al, 'e'
 int 0x10
 mov al, 'r'
 int 0x10
-jmp $
-not_ruh_roh:
+mov al, 'r'
+int 0x10
+not_bios_disk_recognition_error:
+
 
 cmp dl, 0
 jz dl_is_zero
@@ -42,7 +89,7 @@ mov al, '='
 int 0x10
 mov al, '0'
 int 0x10
-jmp $
+;jmp $
 dl_not_zero:
 
             ; NOTE: the below segment of commented out code is here only for debugging, its not very good either so just ignore it
@@ -228,8 +275,24 @@ jmp BOOT2_LOCATION
 
 ;to try different methods of loading the disk. If none work, continues directly into read_error; if any DO work, jumps to no_error
 alt_disk_load:
+;we can attempt again here, perhaps with `int 0x13 & ah=0x42 drive#=0x80`?
+
+;we know the carry flag was set... saving other flags set after AH=0x02 failed
+mov [0x600], ah     ;return code (http://www.techhelpmanual.com/205-bios_disk_error_codes.html)
+mov [0x601], al     ;actual sectors read count
+
+; find info on drive emulation for our drive -- INT 13h AH=4Bh (https://en.wikipedia.org/wiki/INT_13H#INT_13h_AH=48h:_Extended_Read_Drive_Parameters) <-- FINISH
+mov [0x602], si     ;save the value of si
+mov si, 0x700       ;DS:SI: points to an empty structure for result. (must be 13h in size) (DS is already 0, we set it way up there ^) (the data structure will be 0x13 bytes long, ie 19-20 bytes i think)
+mov al, 0x01        ;i do not know why this must be 01
+mov dl, [BOOT_DISK]
+mov ah, 0x4B
+int 0x13
+mov si, [0x602]
+;interpret the data we threw into [0x700], do something with it ig to print more info to console?
 
 
+;attempt extended read with INT 13h AH=42h, who knows maybe it'll work
 
 read_error:
 ; Handle error here - this could involve printing an error message and halting
@@ -268,6 +331,6 @@ jmp $            ; Hang the system or loop back to retry
 
 
 BOOT_DISK: db 0
-
+BOOT2_LOCATION equ 0xC00
 times 510-($-$$) db 0
 dw 0xaa55
