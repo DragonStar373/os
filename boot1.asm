@@ -1,30 +1,30 @@
 [org 0x7c00]
-_start:
-    jmp main                         ; Jump to the main bootloader code
-    times (3 - ($ - _start)) db 0    ; Fill to ensure the BPB starts at the correct position
-
-    ; BPB for a 2.88MB floppy (FAT12)
-    OEMname:            db "MYBOOT  "   ; OEM name (8 bytes)
-    bytesPerSector:     dw 512          ; Bytes per sector
-    sectPerCluster:     db 1            ; Sectors per cluster
-    reservedSectors:    dw 1            ; Reserved sectors
-    numFAT:             db 2            ; Number of FAT tables
-    numRootDirEntries:  dw 240          ; Number of root directory entries
-    numSectors:         dw 5760         ; Total sectors (small value)
-    mediaType:          db 0xF0         ; Media descriptor
-    numFATsectors:      dw 9            ; Sectors per FAT
-    sectorsPerTrack:    dw 36           ; Sectors per track
-    numHeads:           dw 2            ; Number of heads
-    numHiddenSectors:   dd 0            ; Hidden sectors
-    numSectorsHuge:     dd 0            ; Large sector count (not used for floppy)
-    driveNum:           db 0            ; Drive number
-    reserved:           db 0x00         ; Reserved
-    signature:          db 0x29         ; Boot signature
-    volumeID:           dd 0x54428E71   ; Volume ID (randomly chosen)
-    volumeLabel:        db "NO NAME    " ; Volume label (11 bytes, space-padded)
-    fileSysType:        db "FAT12   "   ; Filesystem type (8 bytes, space-padded)
-
-main:
+;_start:        ;idk about this section, might need it might not; gonna opt out for now
+;    jmp main                         ; Jump to the main bootloader code
+;    times (3 - ($ - _start)) db 0    ; Fill to ensure the BPB starts at the correct position
+;
+;    ; BPB for a 2.88MB floppy (FAT12)
+;    OEMname:            db "MYBOOT  "   ; OEM name (8 bytes)
+;    bytesPerSector:     dw 512          ; Bytes per sector
+;    sectPerCluster:     db 1            ; Sectors per cluster
+;    reservedSectors:    dw 1            ; Reserved sectors
+;    numFAT:             db 2            ; Number of FAT tables
+;    numRootDirEntries:  dw 240          ; Number of root directory entries
+;    numSectors:         dw 5760         ; Total sectors (small value)
+;    mediaType:          db 0xF0         ; Media descriptor
+;    numFATsectors:      dw 9            ; Sectors per FAT
+;    sectorsPerTrack:    dw 36           ; Sectors per track
+;    numHeads:           dw 2            ; Number of heads
+;    numHiddenSectors:   dd 0            ; Hidden sectors
+;    numSectorsHuge:     dd 0            ; Large sector count (not used for floppy)
+;    driveNum:           db 0            ; Drive number
+;    reserved:           db 0x00         ; Reserved
+;    signature:          db 0x29         ; Boot signature
+;    volumeID:           dd 0x54428E71   ; Volume ID (randomly chosen)
+;    volumeLabel:        db "NO NAME    " ; Volume label (11 bytes, space-padded)
+;    fileSysType:        db "FAT12   "   ; Filesystem type (8 bytes, space-padded)
+;
+;main:
 ;dl always contains what disk is the boot disk, we wanna save this (after testing, i've found that al & ah also often contain values on startup, but idk what for and google says they're unreliable)
 mov [BOOT_DISK], dl
 

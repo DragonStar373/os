@@ -7,8 +7,8 @@
     <option name="/Default/RiderDebugger/RiderRestoreDecompile/RestoreDecompileSetting/@EntryValue" value="false" type="bool" />
     <option name="/Default/Housekeeping/GlobalSettingsUpgraded/IsUpgraded/@EntryValue" value="true" type="bool" />
     <option name="/Default/Housekeeping/FeatureSuggestion/FeatureSuggestionManager/DisabledSuggesters/=SwitchToGoToActionSuggester/@EntryIndexedValue" value="true" type="bool" />
-    <option name="/Default/Housekeeping/FeatureSuggestion/FeatureSuggestionManager/DisabledSuggesters/=SwitchToGoToActionSuggester/@EntryIndexRemoved" />
     <option name="/Default/Housekeeping/RefactoringsMru/RenameRefactoring/DoSearchForTextInStrings/@EntryValue" value="true" type="bool" />
+    <option name="/Default/Housekeeping/FeatureSuggestion/FeatureSuggestionManager/DisabledSuggesters/=SwitchToGoToActionSuggester/@EntryIndexRemoved" />
   </component>
   <component name="CMakePresetLoader">{
   &quot;useNewFormat&quot;: true
@@ -28,25 +28,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1c5e8eb2-3d5b-4f8a-a9df-5b84f7e2dc18" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/md/.obsidian/app.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/md/.obsidian/appearance.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/md/.obsidian/core-plugins.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/md/.obsidian/workspace.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/md/memory_map.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asm_entry_main.asm" beforeDir="false" afterPath="$PROJECT_DIR$/asm_entry_main.asm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/boot1.asm" beforeDir="false" afterPath="$PROJECT_DIR$/boot1.asm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/boot2.asm" beforeDir="false" afterPath="$PROJECT_DIR$/boot2.asm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/asm_entry_main.o" beforeDir="false" afterPath="$PROJECT_DIR$/build/asm_entry_main.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/boot.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/boot.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/boot1.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/boot1.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/boot2.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/boot2.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/entry.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/entry.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/entrystub.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/entrystub.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/zeroes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/zeroes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/os.bin" beforeDir="false" afterPath="$PROJECT_DIR$/os.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeroes.asm" beforeDir="false" afterPath="$PROJECT_DIR$/zeroes.asm" afterDir="false" />
-    </list>
+    <list default="true" id="1c5e8eb2-3d5b-4f8a-a9df-5b84f7e2dc18" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -108,9 +90,9 @@
   }
 }</component>
   <component name="RunManager" selected="Shell Script.mac run">
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
     <configuration name="debug" type="ShConfigurationType">
@@ -143,6 +125,36 @@
       <envs />
       <method v="2" />
     </configuration>
+    <configuration name="debug" type="ShConfigurationType">
+      <option name="SCRIPT_TEXT" value="" />
+      <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
+      <option name="SCRIPT_PATH" value="$PROJECT_DIR$/scripts/make-run-debug.sh" />
+      <option name="SCRIPT_OPTIONS" value="" />
+      <option name="INDEPENDENT_SCRIPT_WORKING_DIRECTORY" value="true" />
+      <option name="SCRIPT_WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="INDEPENDENT_INTERPRETER_PATH" value="true" />
+      <option name="INTERPRETER_PATH" value="/bin/bash" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="EXECUTE_IN_TERMINAL" value="true" />
+      <option name="EXECUTE_SCRIPT_FILE" value="true" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="mac run" type="ShConfigurationType">
+      <option name="SCRIPT_TEXT" value="" />
+      <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
+      <option name="SCRIPT_PATH" value="$PROJECT_DIR$/scripts/make-run-mac.sh" />
+      <option name="SCRIPT_OPTIONS" value="" />
+      <option name="INDEPENDENT_SCRIPT_WORKING_DIRECTORY" value="true" />
+      <option name="SCRIPT_WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="INDEPENDENT_INTERPRETER_PATH" value="true" />
+      <option name="INTERPRETER_PATH" value="/bin/zsh" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="EXECUTE_IN_TERMINAL" value="true" />
+      <option name="EXECUTE_SCRIPT_FILE" value="true" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <configuration name="mac run" type="ShConfigurationType">
       <option name="SCRIPT_TEXT" value="" />
       <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
@@ -206,7 +218,7 @@
     <configuration name="make" type="ShConfigurationType">
       <option name="SCRIPT_TEXT" value="" />
       <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
-      <option name="SCRIPT_PATH" value="$PROJECT_DIR$/make.sh" />
+      <option name="SCRIPT_PATH" value="$PROJECT_DIR$/scripts/make.sh" />
       <option name="SCRIPT_OPTIONS" value="" />
       <option name="INDEPENDENT_SCRIPT_WORKING_DIRECTORY" value="true" />
       <option name="SCRIPT_WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -237,6 +249,36 @@
       <option name="SCRIPT_TEXT" value="" />
       <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
       <option name="SCRIPT_PATH" value="$PROJECT_DIR$/make.sh" />
+      <option name="SCRIPT_OPTIONS" value="" />
+      <option name="INDEPENDENT_SCRIPT_WORKING_DIRECTORY" value="true" />
+      <option name="SCRIPT_WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="INDEPENDENT_INTERPRETER_PATH" value="true" />
+      <option name="INTERPRETER_PATH" value="/bin/bash" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="EXECUTE_IN_TERMINAL" value="true" />
+      <option name="EXECUTE_SCRIPT_FILE" value="true" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="make" type="ShConfigurationType">
+      <option name="SCRIPT_TEXT" value="" />
+      <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
+      <option name="SCRIPT_PATH" value="$PROJECT_DIR$/make.sh" />
+      <option name="SCRIPT_OPTIONS" value="" />
+      <option name="INDEPENDENT_SCRIPT_WORKING_DIRECTORY" value="true" />
+      <option name="SCRIPT_WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="INDEPENDENT_INTERPRETER_PATH" value="true" />
+      <option name="INTERPRETER_PATH" value="/bin/bash" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="EXECUTE_IN_TERMINAL" value="true" />
+      <option name="EXECUTE_SCRIPT_FILE" value="true" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="run" type="ShConfigurationType">
+      <option name="SCRIPT_TEXT" value="" />
+      <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
+      <option name="SCRIPT_PATH" value="$PROJECT_DIR$/scripts/make-run.sh" />
       <option name="SCRIPT_OPTIONS" value="" />
       <option name="INDEPENDENT_SCRIPT_WORKING_DIRECTORY" value="true" />
       <option name="SCRIPT_WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -361,6 +403,7 @@
       <workItem from="1741370696966" duration="4220000" />
       <workItem from="1741383314911" duration="9881000" />
       <workItem from="1741735671762" duration="5212000" />
+      <workItem from="1741745355186" duration="1000" />
     </task>
     <servers />
   </component>
