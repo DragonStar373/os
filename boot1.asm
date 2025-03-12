@@ -92,147 +92,6 @@ int 0x10
 ;jmp $
 dl_not_zero:
 
-            ; NOTE: the below segment of commented out code is here only for debugging, its not very good either so just ignore it
-;mov ah, 0x0e
-;mov al, 'd'
-;int 0x10
-;mov al, 'l'
-;int 0x10
-;mov al, ''
-;int 0x10
-;mov al, '!'
-;int 0x10
-;mov al, '='
-;int 0x10
-;mov al, '0'
-;int 0x10
-;
-;mov al, 0x0A    ;print a newline
-;int 0x10
-;mov al, 0x0D
-;int 0x10
-;mov al, 0x0A    ;print a newline
-;int 0x10
-;mov al, 0x0D
-;int 0x10
-;
-;sub_64_from_al:
-;mov al, 'd'
-;int 0x10
-;mov al, 'l'
-;int 0x10
-;mov al, ''
-;int 0x10
-;mov al, '-'
-;int 0x10
-;mov al, ' '
-;int 0x10
-;mov al, '6'
-;int 0x10
-;mov al, '4'
-;int 0x10
-;mov al, ':'
-;int 0x10
-;mov al, 0x0A    ;print a newline
-;int 0x10
-;mov al, 0x0D
-;int 0x10
-;;sub 64
-;mov al, dl
-;sub al, 64
-;;print
-;mov ah, 0x0e
-;int 0x10       ; Print the character
-;;newlines
-;mov al, 0x0A    ;print a newline
-;int 0x10
-;mov al, 0x0D
-;int 0x10
-;mov al, 0x0A    ;print a newline
-;int 0x10
-;mov al, 0x0D
-;int 0x10
-;
-;comparisons:
-;mov dl, [BOOT_DISK]
-;
-;cmp dl, 0
-;jz null
-;cmp dl, 128
-;je dl_equals_128
-;cmp dl, 0x20
-;jle less_than_32
-;cmp dl, 32
-;jge greater_than_32
-;jmp $
-;
-;null:
-;mov al, 'n'
-;int 0x10
-;mov al, 'u'
-;int 0x10
-;mov al, 'l'
-;int 0x10
-;mov al, 'l'
-;int 0x10
-;jmp load_disk
-;
-;dl_equals_128:
-;mov al, 'd'
-;int 0x10
-;mov al, 'l'
-;int 0x10
-;mov al, '='
-;int 0x10
-;mov al, '1'
-;int 0x10
-;mov al, '2'
-;int 0x10
-;mov al, '8'
-;int 0x10
-;jmp load_disk
-;
-;less_than_32:
-;mov al, 'd'
-;int 0x10
-;mov al, 'l'
-;int 0x10
-;mov al, '<'
-;int 0x10
-;mov al, '='
-;int 0x10
-;mov al, '3'
-;int 0x10
-;mov al, '2'
-;int 0x10
-;jmp load_disk
-;
-;greater_than_32:
-;mov al, 'd'
-;int 0x10
-;mov al, 'l'
-;int 0x10
-;mov al, '>'
-;int 0x10
-;mov al, ' '
-;int 0x10
-;mov al, '3'
-;int 0x10
-;mov al, '2'
-;int 0x10
-;jmp load_disk
-;
-;simple_display:
-;mov al, dl
-;int 0x10
-;
-;
-;load_disk:
-;
-;mov al, 0x0A    ;print a newline
-;int 0x10
-;mov al, 0x0D
-;int 0x10
 
 ; 1) load the disk
 
@@ -243,13 +102,7 @@ mov ds, ax		;idrk what this is for
 mov bp, 0x8000		;idrk what this is for
 mov sp, bp		;idrk what this is for
 
-;mov ah, 2	;ah contains the (sector?)
-;mov al, 20	;# of sectors to load			; I CHANGED THIS TO 20
-;mov bx, KERNEL_LOCATION	;location in memory to load disk (or bin) contents
-;mov ch, 0	;cyl #
-;mov cl, 2	;sector # (same as ah?)
-;mov dh, 0	;head #
-;mov dl, [BOOT_DISK]	;drive #
+
 
 
 ;for disk reading:
@@ -257,7 +110,7 @@ mov sp, bp		;idrk what this is for
 disk_load:
 mov bx, BOOT2_LOCATION     ;location to load into memory
 mov ah, 0x02    ;ah must be 2. i do not know why ah must be 2. but ah must be 2.
-mov al, 0x25    ;number of sectors we want to read
+mov al, 0x32    ;number of sectors we want to read (0x32h = 50 = 25kb)
 mov ch, 0x00    ;cylinder #
 mov dh, 0x00    ;head #
 mov cl, 0x02    ;sector #
@@ -330,7 +183,7 @@ int 0x10
 jmp $            ; Hang the system or loop back to retry
 
 
-BOOT_DISK: db 0
-BOOT2_LOCATION equ 0xC00
+BOOT_DISK equ 0x7e00
+BOOT2_LOCATION equ 0x500
 times 510-($-$$) db 0
 dw 0xaa55

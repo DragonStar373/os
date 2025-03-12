@@ -29,14 +29,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1c5e8eb2-3d5b-4f8a-a9df-5b84f7e2dc18" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/md/.obsidian/app.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/md/.obsidian/appearance.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/md/.obsidian/core-plugins.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/md/.obsidian/workspace.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/md/memory_map.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asm_entry_main.asm" beforeDir="false" afterPath="$PROJECT_DIR$/asm_entry_main.asm" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/boot1.asm" beforeDir="false" afterPath="$PROJECT_DIR$/boot1.asm" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/boot2.asm" beforeDir="false" afterPath="$PROJECT_DIR$/boot2.asm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/asm_entry_main.o" beforeDir="false" afterPath="$PROJECT_DIR$/build/asm_entry_main.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/boot.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/boot.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/boot1.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/boot1.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/boot2.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/boot2.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/entry.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/entry.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/entrystub.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/entrystub.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entry.asm" beforeDir="false" afterPath="$PROJECT_DIR$/entry.asm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/zeroes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/zeroes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/os.bin" beforeDir="false" afterPath="$PROJECT_DIR$/os.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zeroes.asm" beforeDir="false" afterPath="$PROJECT_DIR$/zeroes.asm" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,9 +108,9 @@
   }
 }</component>
   <component name="RunManager" selected="Shell Script.mac run">
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
       </method>
     </configuration>
     <configuration name="debug" type="ShConfigurationType">
@@ -351,6 +360,7 @@
       <workItem from="1741314505731" duration="188000" />
       <workItem from="1741370696966" duration="4220000" />
       <workItem from="1741383314911" duration="9881000" />
+      <workItem from="1741735671762" duration="5212000" />
     </task>
     <servers />
   </component>

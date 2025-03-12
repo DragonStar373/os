@@ -1,7 +1,7 @@
 [bits 32]
 section .text
 global asm_main
-FRAMEBUFFER_LOCATION equ 0x600
+FRAMEBUFFER_LOCATION equ 0x7e01
 FB_XLEN equ 3072
 FB_YLEN equ 768
 MAGIC_NUMBER1 equ 8
@@ -970,7 +970,7 @@ print_A:
     inc dword [xcounter]
     ret
 
-
+ret
 framebuffer:
     times 1 db 0
 color1:

@@ -1,6 +1,6 @@
-[org 0xc00]
-FRAMEBUFFER_LOCATION equ 0x600
-ENTRY_LOCATION equ 0x2000
+[org 0x500]
+FRAMEBUFFER_LOCATION equ 0x7e01
+ENTRY_LOCATION equ 0x1900
 
 ; 2) enable A20 flag (God help us all)
 call enable_a20
