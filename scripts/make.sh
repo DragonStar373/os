@@ -7,7 +7,10 @@ echo "entry.asm assembled"
 nasm "asm_entry_main.asm" -f elf -o "asm_entry_main.o"
 echo "asm_entry_main.asm assembled"
 
-i386-elf-ld -o "entry.bin" -Ttext 0x1000 "entry.o" "cpp_main.o" "asm_entry_main.o" --oformat binary
+nasm "char.asm" -f elf -o "char.o"
+echo "char.asm assembled"
+
+i386-elf-ld -o "entry.bin" -Ttext 0x1000 "entry.o" "cpp_main.o" "asm_entry_main.o" "char.o" --oformat binary
 echo "linked"
 
 nasm "boot1.asm" -f bin -o "boot1.bin"

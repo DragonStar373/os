@@ -1,4 +1,5 @@
 [bits 32]
+[extern print_char_anywhere]
 section .text
 global asm_main
 FRAMEBUFFER_LOCATION equ 0x7e01
@@ -267,6 +268,22 @@ call print_C
 call print_D
 call print_E
 call print_F
+
+mov byte [0x7df0], 'A'
+mov dword [0x7e05], 56
+call print_char_anywhere
+mov byte [0x7df0], 'A'
+mov dword [0x7e05], 64
+call print_char_anywhere
+mov byte [0x7df0], 'C'
+mov dword [0x7e05], 72
+call print_char_anywhere
+mov byte [0x7df0], 'F'
+mov dword [0x7e05], 80
+call print_char_anywhere
+mov byte [0x7df0], 'A'
+mov dword [0x7e05], 96
+call print_char_anywhere
 
 
 jmp $
